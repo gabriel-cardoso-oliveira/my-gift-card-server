@@ -1,7 +1,8 @@
 import { Router } from 'express';
+import transactionsRouter from './transactions.routes';
 
 const routes = Router();
 
-routes.get('/', (request, response) => response.json({ message: 'Hello Word' }));
+routes.use('/transactions', transactionsRouter);
 
 export default routes;
