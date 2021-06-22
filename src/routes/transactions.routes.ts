@@ -22,6 +22,7 @@ transactionsRouter.post('/', async (request, response) => {
       transaction_value,
       transaction_date,
       store_identification,
+      giftcard_id,
     } = request.body;
 
     const parseDate = parseISO(transaction_date);
@@ -33,6 +34,7 @@ transactionsRouter.post('/', async (request, response) => {
       transaction_value,
       transaction_date: parseDate,
       store_identification,
+      giftcard_id,
     });
 
     return response.json(transaction);

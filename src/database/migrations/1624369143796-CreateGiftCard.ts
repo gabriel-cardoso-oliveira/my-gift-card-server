@@ -15,8 +15,8 @@ export default class CreateGiftCard1624369143796 implements MigrationInterface {
             default: 'uuid_generate_v4()',
           },
           {
-            name: 'gifcard_number',
-            type: 'integer',
+            name: 'giftcard_number',
+            type: 'bigint',
             isNullable: false,
             isUnique: true,
           },

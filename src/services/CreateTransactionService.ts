@@ -9,6 +9,7 @@ interface Request {
   transaction_value: Number;
   transaction_date: Date;
   store_identification: string;
+  giftcard_id: string;
 }
 
 class CreateTransactionService {
@@ -16,7 +17,8 @@ class CreateTransactionService {
     transaction_type,
     transaction_value,
     transaction_date,
-    store_identification
+    store_identification,
+    giftcard_id,
   }: Request): Promise<Transaction> {
     const transactionsRepository = getCustomRepository(TransactionsRepository);
 
@@ -27,6 +29,7 @@ class CreateTransactionService {
       transaction_date: transactionDate,
       transaction_value,
       store_identification,
+      giftcard_id,
     });
 
     await transactionsRepository.save(transaction);

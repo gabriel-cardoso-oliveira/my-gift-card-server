@@ -12,7 +12,7 @@ class GiftCard {
   id: string;
 
   @Column('integer')
-  gifcard_number: Number;
+  giftcard_number: Number;
 
   @Column()
   giftcard_password: string;
