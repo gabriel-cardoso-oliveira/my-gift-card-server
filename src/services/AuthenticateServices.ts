@@ -2,6 +2,7 @@ import { getRepository } from 'typeorm';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import GiftCard from '../models/GiftCard';
+import authConfig from '../config/auth';
 
 interface Request {
   giftcard_number: Number;
@@ -36,9 +37,11 @@ class AuthenticateServices {
       throw new Error('Incorrect number/password combination.');
     }
 
-    const token = sign({}, '7507ff7c4f46c027e4ef68b44ffd46ba', {
+    const { secret, expiresIn } = authConfig.jwt;
+
+    const token = sign({}, secret, {
       subject: giftCard.id,
-      expiresIn: '1d',
+      expiresIn
     });
 
     return {

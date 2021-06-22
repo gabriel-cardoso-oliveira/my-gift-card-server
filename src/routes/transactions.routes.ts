@@ -5,7 +5,11 @@ import { parseISO } from 'date-fns';
 import TransactionsRepository from '../repositories/TransactionsRepository';
 import CreateTransactionService from '../services/CreateTransactionService';
 
+import ensureAutenticated from '../middlewares/ensureAuthenticated';
+
 const transactionsRouter = Router();
+
+transactionsRouter.use(ensureAutenticated);
 
 transactionsRouter.get('/', async (request, response) => {
   const transactionsRepository = getCustomRepository(TransactionsRepository);
