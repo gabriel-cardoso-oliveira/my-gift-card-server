@@ -21,6 +21,11 @@ export default class CreateGiftCard1624369143796 implements MigrationInterface {
             isUnique: true,
           },
           {
+            name: 'giftcard_password',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
             name: 'giftcard_validated',
             type: 'date',
             isNullable: false,

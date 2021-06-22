@@ -34,6 +34,16 @@ export default class CreateTransactions1624313541359 implements MigrationInterfa
             type: 'varchar',
             isNullable: false,
           },
+          {
+            name: 'created_at',
+            type: 'timestamp',
+            default: 'now()',
+          },
+          {
+            name: 'updated_at',
+            type: 'timestamp',
+            default: 'now()',
+          },
         ]
       })
     )

@@ -6,22 +6,22 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('transactions')
-class Transaction {
+@Entity('gift_card')
+class GiftCard {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
-  transaction_type: string;
-
-  @Column('numeric')
-  transaction_value: Number;
-
-  @Column('time with time zone')
-  transaction_date: Date;
+  @Column('integer')
+  gifcard_number: Number;
 
   @Column()
-  store_identification: string;
+  giftcard_password: string;
+
+  @Column('date')
+  giftcard_validated: Date;
+
+  @Column()
+  giftcard_message: string;
 
   @CreateDateColumn()
   created_at: Date;
@@ -30,4 +30,4 @@ class Transaction {
   updated_at: Date;
 }
 
-export default Transaction;
+export default GiftCard;
