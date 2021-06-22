@@ -1,11 +1,11 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export default class CreateTransactions1624313541359 implements MigrationInterface {
+export default class CreateGiftCard1624369143796 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'transactions',
+        name: 'gift_card',
         columns: [
           {
             name: 'id',
@@ -15,24 +15,30 @@ export default class CreateTransactions1624313541359 implements MigrationInterfa
             default: 'uuid_generate_v4()',
           },
           {
-            name: 'transaction_type',
+            name: 'gifcard_number',
+            type: 'integer',
+            isNullable: false,
+            isUnique: true,
+          },
+          {
+            name: 'giftcard_validated',
+            type: 'date',
+            isNullable: false,
+          },
+          {
+            name: 'giftcard_message',
             type: 'varchar',
             isNullable: false,
           },
           {
-            name: 'transaction_value',
-            type: 'numeric',
-            isNullable: false,
+            name: 'created_at',
+            type: 'timestamp',
+            default: 'now()',
           },
           {
-            name: 'transaction_date',
-            type: 'timestamp with time zone',
-            isNullable: false,
-          },
-          {
-            name: 'store_identification',
-            type: 'varchar',
-            isNullable: false,
+            name: 'updated_at',
+            type: 'timestamp',
+            default: 'now()',
           },
         ]
       })
@@ -40,7 +46,7 @@ export default class CreateTransactions1624313541359 implements MigrationInterfa
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('transactions');
+    await queryRunner.dropTable('gift_card');
   }
 
 }
