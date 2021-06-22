@@ -13,7 +13,7 @@ Install:
 git clone https://github.com/gabriel-cardoso-oliveira/my-gift-card-server.git
 ```
 ```
-cd amy-gift-card-server/
+cd my-gift-card-server/
 ```
 ```
 yarn install
