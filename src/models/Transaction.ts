@@ -4,7 +4,11 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
+
+import GiftCard from './GiftCard';
 
 @Entity('transactions')
 class Transaction {
@@ -28,6 +32,13 @@ class Transaction {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @Column()
+  giftcard_id: string;
+
+  @ManyToOne(() => GiftCard)
+  @JoinColumn({ name: 'giftcard_id' })
+  gift_card: GiftCard;
 }
 
 export default Transaction;
